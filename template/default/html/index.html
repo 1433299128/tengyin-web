@@ -1,0 +1,227 @@
+{include file=header.html}
+<!-- banner -->
+<div class="t_banner_wrappe">
+	<div class="t_banner_content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+
+				{pboot:slide gid=1}
+				<div class="swiper-slide"><img src="[slide:src]"></div>
+				{/pboot:slide}
+
+				<!-- <div class="swiper-slide"><img src="./img/20967688.jpg" ></div>
+			      <div class="swiper-slide"><img src="./img/20967690.jpg" ></div>
+				  <div class="swiper-slide"><img src="./img/20967689.jpg" ></div> -->
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<style type="text/css">
+				.swiper-button-next,
+				.swiper-button-prev {
+					width: 40px;
+					height: 50px;
+					background-size: 20px 15px;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: 0 10px;
+				}
+			</style>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+		</div>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				loop: true,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				autoplay: {
+					delay: 3000,
+				},
+			});
+		</script>
+	</div>
+</div>
+<!-- main -->
+<div class="main__wrappe">
+	<!--new menu -->
+	<div class="new_menu_container">
+		<div class="new_menu">
+			<div class="new_menu_left">
+				<div class="m_title">
+					<h1>新品菜单</h1>
+					<p>
+						<strong>NEW MENU</strong>
+					</p>
+				</div>
+				<div class="m_line"
+					style="width: 70px;height: 4px;background-color: #ABBA11;display: block;margin-bottom: 20px;margin-left: 13px;">
+				</div>
+				<ul>
+					{pboot:list scode=2 num=2}
+					<li>
+						<div class="m_list_pic">
+							<a href="[list:link]">
+								<img src="[list:ico]">
+							</a>
+						</div>
+						<div class="m_list_info">
+							<div class="info_content">
+								<h3 class="info_content_title">
+									<a href="[list:link]">
+										[list:title]
+									</a>
+								</h3>
+								<p class="info_content_desc">
+									[list:subtitle]
+								</p>
+							</div>
+						</div>
+					</li>
+					{/pboot:list}
+					<!-- <li>
+							<div class="m_list_pic">
+								<a href="">
+									<img src="./img/20967768.jpg" >
+								</a>
+							</div>
+							<div class="m_list_info">
+								<div class="info_content">
+									<h3 class="info_content_title">
+										<a href="">
+											霸气芝士车厘子
+										</a>
+									</h3>
+									<p class="info_content_desc">
+										
+									</p>
+								</div>
+							</div>
+						</li> -->
+				</ul>
+			</div>
+			<div class="new_menu_right">
+				{pboot:list scode=2 num=4 start=3}
+				<div class="m_r_box">
+					<img src="[list:ico]">
+				</div>
+				{/pboot:list}
+				<!-- <div class="m_r_box">
+							<img src="./img/9694049.jpg" >
+					</div>
+					<div class="m_r_box">
+							<img src="./img/9694043.jpg" >
+					</div>
+					<div class="m_r_box">
+							<img src="./img/9694045.jpg" >
+					</div>
+					<div class="m_r_box">
+							<img src="./img/9694005.jpg" >
+					</div> -->
+				<div class="m_r_box">
+					<p>经典产品</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- aboutus -->
+	<div class="m_aboutus"
+		style="background: url({label:index_aboutus_background}) no-repeat;display: inline-block;background-size: cover; background-position: 50% 50%; width: 100%;">
+		<div class="m_aboutus_container">
+			<div class="m_aboutus_box">
+				<!-- <div class="m_aboutus_box_title">
+							<h1 style="color: #ffffff;font-size: 22px;line-height: 1.75;font-weight: bold;text-align: center;">关于我们</h1>
+							<p style="text-align: center;">
+								<strong style="color: #fff;font-size: 36px;line-height: 1.75;font-weight: bold;">
+									ABOUT US
+								</strong>
+							</p>
+						</div>
+						<div class="m_aboutus_box_desc">
+							品牌愿景
+							<br>
+							茶在中国有5000年的文化积淀，但现代社会里人心浮躁，尤其是年轻人已经很少会花时间静啜一杯茶，奈雪希望通过简单的、符合现代人生活的方式将好茶带到每个人身边，成为中国茶文化走向世界的创新者和推动者。
+						</div> -->
+				{pboot:list scode=7}
+				<div class="m_aboutus_box_title">
+					<h1 style="color: #ffffff;font-size: 22px;line-height: 1.75;font-weight: bold;text-align: center;">
+						[list:title]</h1>
+					<p style="text-align: center;">
+						<strong style="color: #fff;font-size: 36px;line-height: 1.75;font-weight: bold;">
+							[list:subtitle]
+						</strong>
+					</p>
+				</div>
+				<div class="m_aboutus_box_desc">
+					[list:description]
+				</div>
+				{/pboot:list}
+				<div class="m_aboutus_more">
+					<!-- <a href="">
+								查看更多
+							</a> -->
+					{pboot:sort scode=1}
+					<a href="[sort:link]">查看更多</a>
+					{/pboot:sort}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- world -->
+	<div class="m_world_container">
+		{pboot:content id=19}
+		<div class="m_world_title">
+			<h1 style="line-height: 1.5;color: #A7D500;font-size: 22px;text-align: center;">[content:title]</h1>
+			<p style="font-size: 36px;line-height: 1.75;font-weight: bold;text-align: center;">[content:subtitle]</p>
+		</div>
+		{/pboot:content}
+		<div class="m_world_box_wrappe">
+			{pboot:sort scode=4}
+			<div class="m_world_box">
+				<a href="[sort:link]">
+					<img src="{label:index_product_pic1}">
+					<p style="text-align: center;font-size: 16px;">{label:index_product_1}</p>
+				</a>
+			</div>
+			{/pboot:sort}
+			{pboot:sort scode=2}
+			<div class="m_world_box">
+				<a href="[sort:link]">
+					<img src="{label:index_product_pic2}">
+					<p style="text-align: center;font-size: 16px;">{label:index_product_2}</p>
+				</a>
+			</div>
+			{/pboot:sort}
+			{pboot:sort scode=2}
+			<div class="m_world_box">
+				<a href="[sort:link]">
+					<img src="{label:index_product_pic3}">
+					<p style="text-align: center;font-size: 16px;">{label:index_product_3}</p>
+				</a>
+			</div>
+			{/pboot:sort}
+			{pboot:sort scode=2}
+			<div class="m_world_box">
+				<a href="[sort:link]">
+					<img src="{label:index_product_pic4}">
+					<p style="text-align: center;font-size: 16px;">{label:index_product_4}</p>
+				</a>
+			</div>
+			{/pboot:sort}
+		</div>
+	</div>
+	<!-- 底部图片 -->
+	<div class="m_bottom_pic" style="background: url({label:index_bottom_pic});display: block;background-size: cover;">
+		<!-- <img src="./img/15446019.jpg" > -->
+	</div>
+</div>
+{include file=footer.html}

@@ -1,0 +1,197 @@
+{include file=header.html}
+<!-- banner -->
+<div class="t_banner_wrappe">
+	<div class="t_banner_content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!-- <div class="swiper-slide stop-swiping"><img src="./img/10019810.png" ></div> -->
+				{pboot:slide gid=6}
+				<div class="swiper-slide abouts_banner"><img src="[slide:src]"></div>
+				{/pboot:slide}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<style type="text/css">
+				.swiper-button-next,
+				.swiper-button-prev {
+					width: 40px;
+					height: 50px;
+					background-size: 20px 15px;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: 0 10px;
+				}
+
+				.abouts_banner img {
+					min-height: 150px;
+				}
+			</style>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+		</div>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				loop: true,
+				spaceBetween: 30,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		</script>
+	</div>
+</div>
+<!-- mian -->
+<div class="contact_wrappe">
+	<div class="contact_container">
+		<div class="contact_contant">
+			<div class="contact_contant_title">
+				<h1 style="color: #000;font-size: 22px;line-height: 1.75;font-weight: bold;text-align: center;">
+					{sort:name}
+				</h1>
+
+				<p style="text-align: center;">
+					<strong style="color: #a7d500;font-size: 36px;line-height: 1.75;font-weight: bold;">
+						{sort:subname}
+					</strong>
+				</p>
+			</div>
+			<div class="contact_contant_contant">
+				<div class="contact_contant_left">
+					<ul style="width: 90%;">
+						<li>
+							<a href="javacript:void(0)">
+								<i class="ltd-icon gs-dizhi"></i>
+								地址：{pboot:companyaddress}
+							</a>
+						</li>
+						<li>
+							<a href="javacript:void(0)">
+								<i class="ltd-icon gs-dianhua"></i>
+								电话：{pboot:companyphone}
+							</a>
+						</li>
+						<li>
+							<a href="javacript:void(0)">
+								<i class="ltd-icon gs-youxiang"></i>
+								邮箱：{pboot:companyemail}
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="contact_contant_right">
+					
+					 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5I4EXoDQh7hYOjCThxkpCGDYa6dQYmYz"></script>
+					    <!--百度地图容器-->
+					    <div style="width:100%;height:100%;border:#ccc solid 1px;font-size:12px;min-height: 200px;" id="map"></div>
+
+					  <script type="text/javascript">
+					    //创建和初始化地图函数：
+					    function initMap(){
+					      createMap();//创建地图
+					      setMapEvent();//设置地图事件
+					      addMapControl();//向地图添加控件
+					      addMapOverlay();//向地图添加覆盖物
+					    }
+					    function createMap(){ 
+					      map = new BMap.Map("map"); 
+					      map.centerAndZoom(new BMap.Point(121.276641,31.199911),17);
+					    }
+					    function setMapEvent(){
+					      map.enableScrollWheelZoom();
+					      map.enableKeyboard();
+					      map.enableDragging();
+					      map.enableDoubleClickZoom()
+					    }
+					    function addClickHandler(target,window){
+					      target.addEventListener("click",function(){
+					        target.openInfoWindow(window);
+					      });
+					    }
+					    function addMapOverlay(){
+					      var markers = [
+					        {content:"上海市青浦区徐泾镇华徐公路568号仓加国际商务园B座7楼",title:"上海腾饮餐饮管理有限公司",imageOffset: {width:-46,height:-21},position:{lat:31.200189,lng:121.276165}}
+					      ];
+					      for(var index = 0; index < markers.length; index++ ){
+					        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+					        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+					          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+					        })});
+					        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+					        var opts = {
+					          width: 200,
+					          title: markers[index].title,
+					          enableMessage: false
+					        };
+					        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+					        marker.setLabel(label);
+					        addClickHandler(marker,infoWindow);
+					        map.addOverlay(marker);
+					      };
+					    }
+					    //向地图添加控件
+					    function addMapControl(){
+					      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+					      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+					      map.addControl(scaleControl);
+					      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+					      map.addControl(navControl);
+					      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+					      map.addControl(overviewControl);
+					    }
+					    var map;
+					      initMap();
+					  </script>
+
+					
+					
+				</div>
+			</div>
+			<div class="from">
+				<form action="{pboot:msgaction}" method="post">
+					<div class="guestbook-item">
+						<input type="text" name="contacts" placeholder="联系人姓名" required>
+					</div>
+					<div class="guestbook-item">
+						<input type="text" name="mobile" placeholder="手机号码" required>
+					</div>
+					<div class="guestbook-item" style="height: auto;">
+						<textarea type="text" name="content" placeholder="留言内容" class="lynr" required></textarea>
+					</div>
+					<div class="guestbook-item guestbook-code">
+						<input type="text" name="checkcode" class="placeholder" placeholder="验证码"
+							style="padding:  0 0 0 12px;height: 100%;" required>
+						<div class="guestbook-codeimg">
+							<img title="点击刷新" src="{pboot:checkcode}"
+								onclick="this.src='{pboot:checkcode}?'+Math.round(Math.random()*10);" />
+						</div>
+					</div>
+					<style type="text/css">
+						button[type=submit]:hover {
+							background: #A7D500;
+						}
+
+						button[type=reset]:hover {
+							background: #F4002B;
+						}
+					</style>
+					<div style="display: flex;justify-content: space-between;">
+						<button type="submit"
+							style="width: 150px;height: 40px;border: 1px solid #999;border-radius: 20px;color: #666;box-shadow: 0px 5px 5px 0;">提交</button>
+						<button type="reset"
+							style="width: 150px;height: 40px;border: 1px solid #999;border-radius: 20px;color: #666;box-shadow: 0px 5px 5px 0;">重置</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{include file=footer.html}

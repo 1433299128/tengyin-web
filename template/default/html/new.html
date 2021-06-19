@@ -1,0 +1,75 @@
+{include file=header.html}
+<!-- banner -->
+<div class="t_banner_wrappe">
+	<div class="t_banner_content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!-- <div class="swiper-slide stop-swiping"><img src="./img/10019810.png" ></div> -->
+				{pboot:slide gid=2}
+				<div class="swiper-slide abouts_banner"><img src="[slide:src]"></div>
+				{/pboot:slide}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<style type="text/css">
+				.swiper-button-next,
+				.swiper-button-prev {
+					width: 40px;
+					height: 50px;
+					background-size: 20px 15px;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: 0 10px;
+				}
+
+				.abouts_banner img {
+					min-height: 150px;
+				}
+			</style>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+		</div>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				loop: true,
+				spaceBetween: 30,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		</script>
+	</div>
+</div>
+<!-- content -->
+<div class="about_content_wrappe">
+	<div class="about_content_container">
+		<div class="about_content">
+			<ul>
+				{pboot:nav parent={sort:tcode} }
+				<li><a href="[nav:link]">[nav:name]</a></li>
+				{/pboot:nav}
+				<!-- <li class="about_content_list_curr"><a href="javascript:void(0);">品牌介绍</a></li>
+					<li><a href="javascript:void(0);">品牌愿景</a></li>
+					<li><a href="javascript:void(0);">企业荣誉</a></li>
+					<li><a href="javascript:void(0);">新闻中心</a></li> -->
+			</ul>
+			<!-- <script>
+					$(".about_content>ul>li").click(function(){
+						$(this).addClass("about_content_list_curr").siblings().removeClass("about_content_list_curr");
+					})
+				</script> -->
+			<div>
+				{content:content}
+			</div>
+		</div>
+	</div>
+</div>
+{include file=footer.html}

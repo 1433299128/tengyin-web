@@ -1,0 +1,94 @@
+{include file=header.html}
+<!-- banner -->
+<div class="t_banner_wrappe">
+	<div class="t_banner_content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!-- <div class="swiper-slide stop-swiping"><img src="./img/10019810.png" ></div> -->
+				{pboot:slide gid=4}
+				<div class="swiper-slide abouts_banner"><img src="[slide:src]"></div>
+				{/pboot:slide}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<style type="text/css">
+				.swiper-button-next,
+				.swiper-button-prev {
+					width: 40px;
+					height: 50px;
+					background-size: 20px 15px;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: 0 10px;
+				}
+
+				.abouts_banner img {
+					min-height: 150px;
+				}
+			</style>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+		</div>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				loop: true,
+				spaceBetween: 30,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		</script>
+	</div>
+</div>
+<!-- main -->
+<div class="brand_wrappe">
+	<div class="brand_container">
+		<div class="brand_content">
+			<ul>
+				{pboot:list}
+				<li>
+					<a href="[list:link]">
+						<div class="brand_item_pic">
+							<img src="[list:ico]">
+						</div>
+						<div class="brand_item_title"
+							style="position: absolute;background-color: rgba(0, 0, 0, 0.6);bottom: 0;width: 100%;">
+							<p
+								style="text-align: center;color: #fff;line-height:34px;font-weight: 400;font-size: 14px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding: 6px 0;">
+								[list:title]</p>
+						</div>
+					</a>
+				</li>
+				{/pboot:list}
+			</ul>
+		</div>
+		<div class="more" style="display: block;
+			text-align: center;
+			line-height: 40px;
+			font-size: 16px;
+			color: #666;">
+			<style>
+				.more span {
+					margin: 0 5px;
+					border: 1px solid #eee;
+					padding: 5px;
+					background: #5522440d;
+				}
+
+				.more span:hover {
+					background: rgb(100 150 200 / 50%);
+				}
+			</style>
+			{page:bar}
+		</div>
+	</div>
+</div>
+{include file=footer.html}

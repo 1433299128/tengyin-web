@@ -1,0 +1,97 @@
+{include file=header.html}
+<!-- banner -->
+<div class="t_banner_wrappe">
+	<div class="t_banner_content">
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!-- <div class="swiper-slide stop-swiping"><img src="./img/10019810.png" ></div> -->
+				{pboot:slide gid=5}
+				<div class="swiper-slide abouts_banner"><img src="[slide:src]"></div>
+				{/pboot:slide}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<style type="text/css">
+				.swiper-button-next,
+				.swiper-button-prev {
+					width: 40px;
+					height: 50px;
+					background-size: 20px 15px;
+					background-color: rgba(0, 0, 0, 0.2);
+					margin: 0 10px;
+				}
+
+				.abouts_banner img {
+					min-height: 150px;
+				}
+			</style>
+			<!-- Add Arrows -->
+			<div class="swiper-button-next swiper-button-white"></div>
+			<div class="swiper-button-prev swiper-button-white"></div>
+		</div>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper('.swiper-container', {
+				slidesPerView: 1,
+				loop: true,
+				spaceBetween: 30,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		</script>
+	</div>
+</div>
+
+<!-- main -->
+<div class="brand_wrappe">
+	<div class="brand_container">
+		<div class="brand_content">
+			<style type="text/css">
+				.crumbs {
+					font-size: 12px;
+					color: #999;
+					line-height: 34px;
+					padding: 20px 0;
+				}
+
+				.crumbs a {
+					font-size: 12px;
+					color: #999;
+					line-height: 34px;
+				}
+
+				.product_content img {
+					width: 100%;
+					height: 100%;
+				}
+			</style>
+			<div class="crumbs">
+				{pboot:position}>>{content:title}
+			</div>
+			<div style="padding: 30px;">
+				<p style="text-align: center;font-size: 24px;color: #404040;line-height: 34px;padding: 15px 0;">
+					{content:title}</p>
+				<p
+					style="display: flex;justify-content: space-around;color: #999;font-size: 12px;line-height: 24px;padding: 15px 0;">
+					<span>{content:date style=Y年m月d日}</span>
+					<span>浏览量：{content:visits}</span>
+				</p>
+			</div>
+
+			{content:content}
+		</div>
+		<div class="page"
+			style="width: 100%;display: flex;justify-content: space-between;line-height: 40px;font-size: 16px;color: #6666669e;margin-top: 40px;">
+			<p><a href="{content:prelink}">上一个:{content:pretitle}</a></p>
+			<p><a href="{content:nextlink}">下一个:{content:nexttitle}</a></p>
+		</div>
+	</div>
+</div>
+{include file=footer.html}
